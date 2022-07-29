@@ -1,0 +1,24 @@
+.reveal section p {
+    font-size: 0.7em;
+}
+
+.reveal section pre code {
+    font-size: 0.7em;
+}
+
+.reveal section li {
+    font-size: 0.7em;
+}
+
+.reveal section h2 {
+    font-size: 1em;
+}
+
+.border {
+  border: 1px solid #dee2e6;
+}
+
+.border-thick {
+  border-width: 3px;
+}
+

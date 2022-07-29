@@ -1,0 +1,28 @@
+---
+title: "Shared board with Pins"
+output:
+  html_document:
+    self_contained: false
+---
+
+```{r, include=FALSE}
+tutorial::go_interactive()
+library(vetiver)
+library(tidymodels)
+library(pins)
+library(dplyr)
+```
+
+```{r ex="create_a", type="pre-exercise-code"}
+a <- 5
+```
+
+```{r ex="create_a", type="sample-code"}
+board %>% vetiver_pin_write(v)
+```
+
+```{r ex="create_a", type="solution"}
+# Write to board
+board %>% vetiver_pin_write(v)
+pin_versions(board)
+```

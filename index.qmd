@@ -1,0 +1,140 @@
+---
+title: "Model Tracking and Deployment"
+subtitle: "Dr Arron Lacey"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/edon_logo.png
+    css: styles.css
+    footer: EDoN Model Tracking and Deployment
+resources:
+  - demo.pdf
+---
+
+## How will our models run in the EDoN Toolkit? 
+
+::: {.fragment}
+* EDoN will produce many candidate models in the next 5 years
+    + Using many incrementally collated data sources
+:::
+::: {.fragment}
+* Each will have varying degrees of success - we want to choose the best ones
+:::
+::: {.fragment}
+* We will focus on tracking model development to decide which ones are used in the final toolkit
+:::
+
+
+##
+<section data-background-iframe="images/workflow.png"data-background-interactive>
+</section>
+
+## Why will tracking models help us? 
+
+::: {.fragment}
+* To keep us sane!
+:::
+::: {.fragment}
+* To ensure we are accountable - our work is reproducible
+    + i.e. is the toolkit running **model** V6.X.X against **data** V10.X.X?
+:::
+::: {.fragment}
+* We have a commitment to depositing data and models on the ADDI Workbench
+:::
+::: {.fragment}
+* If we ever have to double check a strange result from the toolkit we can
+:::
+
+
+
+## Model = Data + Algorithm
+
+::: columns
+::: {.column width="50%"}
+::: {.fragment}
+- We have talked about data cleaning, **harmonization** etc... 
+:::
+::: {.fragment}
+- All of these processes are part of the model pipeline
+:::
+::: {.fragment}
+- It will take a **concerted** effort to bring all of this together
+:::
+:::
+::: {.column width="50%"}
+::: {.fragment}
+<video loop data-autoplay src="images/orchestra.mp4" height="650"></video>
+:::
+:::
+:::
+
+::: footer
+:::
+
+## What tools can help us?
+
+![](images/mlops-landscape.png)
+
+## Vetiver + Pins - Python and R version and deployment
+
+![](images/vetiver-workflow.png)
+
+:::footer
+:::
+##
+<section data-background-iframe="https://vetiver.rstudio.com/get-started/"data-background-interactive>
+</section>
+
+
+## All versioning is backed by our Gitlab
+
+* Boards are pushed to [Gitlab](https://gitlab.com/edon-initiative/mlops/vetiver-workflow/) so we can share models easily
+
+* Local **or** Continuous Integration / Continuous Development Deployment [(CI/CD)]()
+
+::: {.fragment}
+![](images/cicd_pipeline.jpeg)
+:::
+
+## Initiating API {auto-animate="true"}
+
+Deployment via [Plumber](https://www.rplumber.io/) in R or a [FastAPI](https://fastapi.tiangolo.com/) in Python
+
+R
+```{.r}
+library(plumber)
+pr() %>%
+  vetiver_api(v) %>%
+  pr_run(port=8000)
+```
+
+Python
+```{.python}
+from vetiver import VetiverAPI
+app = VetiverAPI(v, check_ptype = True, port=8000)
+```
+
+https://edon-initiative.gitlab.io/mlops/mlops-presentation/
+
+## How can we work on this together?
+
+::: {.fragment}
+- Head over to the gitlab repo [https://gitlab.com/edon-initiative/mlops/vetiver-workflow/-/tree/main](https://gitlab.com/edon-initiative/mlops/vetiver-workflow/-/tree/main) to try out a small demo of Vetiver for R
+:::
+::: {.fragment}
+- Work on a Python workflow
+:::
+::: {.fragment}
+- Submit Issues for ideas: [https://gitlab.com/edon-initiative/mlops/vetiver-workflow/-/issues](https://gitlab.com/edon-initiative/mlops/vetiver-workflow/-/issues)
+![](images/issues.png)
+:::
+::: {.fragment}
+- Submit a Merge Request if you have any improvements
+:::
+
+:::footer
+:::

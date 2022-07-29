@@ -1,0 +1,35 @@
+file: cars_lr.rds
+file_size: 6645
+pin_hash: 66c7dc329744b54d
+type: rds
+title: 'cars_lr: a pinned list'
+description: A lm regression modeling workflow
+created: 20220729T152457Z
+api_version: 1.0
+user:
+  toolkit: EDoN v2 toolkit
+  metrics:
+  - (Intercept)
+  - cyl
+  - disp
+  - hp
+  - drat
+  - wt
+  - qsec
+  - vs
+  - am
+  - gear
+  - carb
+  '':
+    car_mod$fit$fit$fit$coefficients:
+    - 12.3033742
+    - -0.1114405
+    - 0.0133352
+    - -0.0214821
+    - 0.787111
+    - -3.7153039
+    - 0.8210407
+    - 0.3177628
+    - 2.5202269
+    - 0.655413
+    - -0.1994193
